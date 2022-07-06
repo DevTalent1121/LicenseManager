@@ -10,6 +10,7 @@
 
     <div class="py-12">
         <div class="container mt-5 mb-5">
+            <div class="flex flex-col mt-8">
             <!-- <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left mb-5 mt-5 text-center">
@@ -21,6 +22,10 @@
             </div> -->
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+            @elseif($message = Session::get('no-credit'))
+            <div class="alert alert-danger">
                 <p>{{ $message }}</p>
             </div>
             @endif
@@ -43,5 +48,10 @@
                 @endforeach
             </table>
         </div>
+        <div class="py-8">
+            {{ $licenses->appends(request()->query())->links() }}
+        </div>
+        </div>
+
     </div>
 </x-app-layout>

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\HTTP\Controllers\LicenseManageController;
-
+use App\HTTP\Controllers\Admin\LogsController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -42,6 +42,14 @@ Route::group([
     'middleware' => ['auth',"user"],
 ], function () {
     Route::resource('licenses', 'LicenseManageController');
+});
+
+Route::group([
+    'namespace'  => 'App\Http\Controllers\Admin',
+    'prefix'     => 'admin',
+    'middleware' => ['auth',"admin"],
+], function () {
+    Route::resource('logs', 'LogsController');
 });
 
 Route::group([
