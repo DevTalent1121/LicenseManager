@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists("licenses");
         Schema::create('licenses', function (Blueprint $table) {
             $table->id();
+            $table->string("license");
+            $table->tinyInteger("user_id");
             $table->timestamps();
         });
     }

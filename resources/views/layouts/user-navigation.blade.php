@@ -5,28 +5,16 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                @if(Auth::user()->hasRole('admin'))
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('licences') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
-                @else
-                    <a href="{{ route('licenses.index') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                    </a>
-                @endif
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    @if(Auth::user()->hasRole('admin'))
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('licencese')" :active="request()->routeIs('licences')">
+                        {{ __('Licencese') }}
                     </x-nav-link>
-                    @else
-                    <x-nav-link :href="route('licenses.index')" :active="request()->routeIs('licenses.index')">
-                        {{ __('License') }}
-                    </x-nav-link>
-                    @endif
                 </div>
             </div>
 
