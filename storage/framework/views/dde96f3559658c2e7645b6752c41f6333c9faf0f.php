@@ -45,9 +45,15 @@
                                         <tr>
                                             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                                 <?php echo e(__('NAME')); ?>    
-                                        </th>
+                                            </th>
                                             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                                 <?php echo e(__('EMAIL')); ?>    
+                                            </th>                                            
+                                            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
+                                                <?php echo e(__('LICENSE LIMIT/CURRENT')); ?>    
+                                            </th>                                            
+                                            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
+                                                <?php echo e(__('STATUS')); ?>    
                                             </th>                                            
                                             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                                 <?php echo e(__('Actions')); ?>
@@ -70,10 +76,31 @@
                                                 </div>
                                             </td>                                            
                                             <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+                                                <div class="text-sm text-gray-900">
+                                                    3/<?php echo e($user->credit); ?>
+
+                                                </div>
+                                            </td>                                            
+                                            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+                                                <div class="text-sm text-gray-900">
+                                                    It's <?php echo e($user->status); ?>
+
+                                                </div>
+                                            </td>                                            
+                                            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                                                 <form action="<?php echo e(route('user.destroy', $user->id)); ?>" method="POST">
                                                     <a href="<?php echo e(route('user.edit', $user->id)); ?>" class="px-4 py-2 text-white mr-4 bg-blue-600">
                                                         <?php echo e(__('Edit')); ?>
 
+                                                    </a>
+                                                    <a href="<?php echo e(route('user.change_status', $user->id)); ?>" class="px-4 py-2 text-white mr-4 bg-green-600">
+                                                        <?php if($user->status == "working"): ?>
+                                                        <?php echo e(__('Suspend')); ?>
+
+                                                        <?php else: ?>
+                                                        <?php echo e(__('Run')); ?>
+
+                                                        <?php endif; ?>
                                                     </a>
                                                     <?php echo csrf_field(); ?>
                                                     <?php echo method_field('DELETE'); ?>

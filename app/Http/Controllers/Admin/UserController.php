@@ -98,6 +98,31 @@ class UserController extends Controller
         return view('admin.user.edit', compact('user'));
     }
 
+    /** 
+     * Change User Status
+     * 
+     * @param \App\Models\User $user
+     * @return \Illuminate\Http\Response
+    */
+
+    public function change_status(User $user){
+        
+
+        // dd($user->id);
+        if($user->id){
+            if($user->status == "working"){
+                $user->status = "suspended";
+            }
+            else{
+                $user->status = "working";
+            }
+    
+            $user->save();
+        }
+        return redirect()->route('user.index')
+        ->with('message',$user->email.' is '.$user->status.' now.');
+}
+
     /**
      * Update the specified resource in storage.
      *

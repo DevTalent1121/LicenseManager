@@ -17,8 +17,8 @@ class LicenseManageController extends Controller
         if(Auth::check()){
             $user = Auth::user();
 
-            $data["user_id"] = $user->id;
-            $data["user_email"] = $user->email;
+            $data["user"] = $user;
+            // $data["user_email"] = $user->email;
             $data["credit"] = $user->credit;
             $data['licenses'] = License::where("user_id",$user->id)->orderBy('id','desc')->paginate(5);
             return view('licenses.index', $data);

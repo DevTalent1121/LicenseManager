@@ -44,6 +44,7 @@ Route::group([
     Route::resource('licenses', 'LicenseManageController');
 });
 
+
 // Route For Logs Management
 Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',
@@ -69,6 +70,7 @@ Route::group([
     'middleware' => ['auth',"admin"],
 ], function () {
     Route::resource('user', 'UserController');
+    Route::get('change_status/{user}', 'UserController@change_status')->name('user.change_status');
     // Route::resource('role', 'RoleController');
     // Route::resource('permission', 'PermissionController');
     // Route::get('/user-list', [ UserController::class, 'index' ])->middleware(['auth','admin'])->name('admin.user.index');

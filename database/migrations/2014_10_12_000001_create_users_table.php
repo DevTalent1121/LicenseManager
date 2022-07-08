@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->enum('role', ['user','admin'])->default('user');
             $table->tinyInteger('credit')->default('3');
+            $table->enum('status', ['working','suspended'])->default('working');
             $table->rememberToken();
             $table->timestamps();
         });

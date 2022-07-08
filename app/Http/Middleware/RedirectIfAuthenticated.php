@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\ValidationException;
 
 
 class RedirectIfAuthenticated
@@ -24,19 +25,24 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, ...$guards)
     {
         $guards = empty($guards) ? [null] : $guards;
-        
-
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
 
                 $user = Auth::user();
                 // dd($user->hasRole("user"));
                 // $user = Auth::guard($guard);
-                if($user->hasRole("admin")){
-                    return redirect()->route("dashboard");
+                if($user->status == "suspended"){
+                    $request->session()->invalidate();     
+                    $request->session()->regenerateToken();
+                    throw ValidationException::withMessages(["Your account has been suspended."]);
                 }
-                elseif($user->hasRole("user")){
-                    return redirect()->route('licenses');
+                else{
+                    if($user->hasRole("admin")){
+                        return redirect()->route("dashboard");
+                    }
+                    elseif($user->hasRole("user")){
+                        return redirect()->route('licenses');
+                    }
                 }
             }
         }

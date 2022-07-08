@@ -2,7 +2,8 @@
     <x-slot name="header">
         <div class="pl-5 pr-5">
             <h5>
-                Welcome, {{$user_email}} | Your Credit: {{$credit}} |  
+                Welcome, {{$user->emai}} |
+                Your Credit: {{$credit}} |  
                 <a class="btn btn-success" href="{{ route('licenses.create') }}"> NEW</a>
             </h5>
         </div>

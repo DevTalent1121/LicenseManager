@@ -34,9 +34,15 @@
                                         <tr>
                                             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                                 {{__('NAME')}}    
-                                        </th>
+                                            </th>
                                             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                                 {{__('EMAIL')}}    
+                                            </th>                                            
+                                            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
+                                                {{__('LICENSE LIMIT/CURRENT')}}    
+                                            </th>                                            
+                                            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
+                                                {{__('STATUS')}}    
                                             </th>                                            
                                             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                                 {{ __('Actions') }}
@@ -57,9 +63,26 @@
                                                 </div>
                                             </td>                                            
                                             <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+                                                <div class="text-sm text-gray-900">
+                                                    3/{{ $user->credit }}
+                                                </div>
+                                            </td>                                            
+                                            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+                                                <div class="text-sm text-gray-900">
+                                                    It's {{ $user->status }}
+                                                </div>
+                                            </td>                                            
+                                            <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                                                 <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                                                     <a href="{{route('user.edit', $user->id)}}" class="px-4 py-2 text-white mr-4 bg-blue-600">
                                                         {{ __('Edit') }}
+                                                    </a>
+                                                    <a href="{{route('user.change_status', $user->id)}}" class="px-4 py-2 text-white mr-4 bg-green-600">
+                                                        @if($user->status == "working")
+                                                        {{ __('Suspend') }}
+                                                        @else
+                                                        {{ __('Run') }}
+                                                        @endif
                                                     </a>
                                                     @csrf
                                                     @method('DELETE')
