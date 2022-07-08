@@ -44,6 +44,7 @@ Route::group([
     Route::resource('licenses', 'LicenseManageController');
 });
 
+// Route For Logs Management
 Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',
     'prefix'     => 'admin',
@@ -52,6 +53,16 @@ Route::group([
     Route::resource('logs', 'LogsController');
 });
 
+// Route For Invite Code
+Route::group([
+    'namespace'  => 'App\Http\Controllers\Admin',
+    'prefix'     => 'admin',
+    'middleware' => ['auth',"admin"],
+], function () {
+    Route::resource('invite_code', 'InviteCodeController');
+});
+
+// Route For User Management
 Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',
     'prefix'     => 'admin',

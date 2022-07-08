@@ -28,6 +28,9 @@
                     <x-nav-link :href="route('logs.index')" :active="request()->routeIs('logs.index')">
                         {{ __('Logs') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('invite_code.index')" :active="request()->routeIs('invite_code.index')">
+                        {{ __('Invite Codes') }}
+                    </x-nav-link>
                     @else
                     <x-nav-link :href="route('licenses.index')" :active="request()->routeIs('licenses.index')">
                         {{ __('License') }}
