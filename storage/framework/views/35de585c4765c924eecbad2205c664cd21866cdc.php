@@ -13,7 +13,7 @@
 
         </h2>
      <?php $__env->endSlot(); ?>
-<div class="py-12">
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="px-6">
@@ -28,40 +28,40 @@
                     <?php endif; ?>
                 </div>
                 <div class="w-full px-6 py-4 bg-white overflow-hidden">
-<form method="POST" action="<?php echo e(route('user.update', $user->id)); ?>">
+                    <form method="POST" action="<?php echo e(route('user.update', $user->id)); ?>">
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('PUT'); ?>
-<div class="py-2">
+                        <div class="py-2">
                             <label for="name" class="block font-medium text-sm text-gray-700<?php echo e($errors->has('name') ? ' text-red-400' : ''); ?>"><?php echo e(__('Name')); ?></label>
-<input id="name" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full<?php echo e($errors->has('name') ? ' border-red-400' : ''); ?>"
+                            <input id="name" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full<?php echo e($errors->has('name') ? ' border-red-400' : ''); ?>"
                                             type="text"
                                             name="name"
                                             value="<?php echo e(old('name', $user->name)); ?>"
                                             />
                         </div>
-<div class="py-2">
+                        <div class="py-2">
                             <label for="email" class="block font-medium text-sm text-gray-700<?php echo e($errors->has('email') ? ' text-red-400' : ''); ?>"><?php echo e(__('Email')); ?></label>
-<input id="email" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full<?php echo e($errors->has('email') ? ' border-red-400' : ''); ?>"
+                            <input id="email" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full<?php echo e($errors->has('email') ? ' border-red-400' : ''); ?>"
                                             type="email"
                                             name="email"
                                             value="<?php echo e(old('email', $user->email)); ?>"
                                             />
                         </div>
-<div class="py-2">
+                        <div class="py-2">
                             <label for="password" class="block font-medium text-sm text-gray-700<?php echo e($errors->has('password') ? ' text-red-400' : ''); ?>"><?php echo e(__('Password')); ?></label>
-<input id="password" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full<?php echo e($errors->has('password') ? ' border-red-400' : ''); ?>"
+                            <input id="password" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full<?php echo e($errors->has('password') ? ' border-red-400' : ''); ?>"
                                             type="password"
                                             name="password"
                                             />
                         </div>
-<div class="py-2">
+                        <div class="py-2">
                             <label for="password_confirmation" class="block font-medium text-sm text-gray-700<?php echo e($errors->has('password') ? ' text-red-400' : ''); ?>"><?php echo e(__('Password Confirmation')); ?></label>
-<input id="password_confirmation" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full<?php echo e($errors->has('password') ? ' border-red-400' : ''); ?>"
+                            <input id="password_confirmation" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full<?php echo e($errors->has('password') ? ' border-red-400' : ''); ?>"
                                             type="password"
                                             name="password_confirmation"
                                             />
                         </div>
-<div class="flex justify-end mt-4">
+                        <div class="flex justify-end mt-4">
                             <button type='submit' class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150'>
                                 <?php echo e(__('Update')); ?>
 

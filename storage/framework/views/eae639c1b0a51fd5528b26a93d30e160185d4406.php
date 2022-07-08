@@ -10,7 +10,7 @@
      <?php $__env->slot('header', null, []); ?> 
         <div class="pl-5 pr-5">
             <h5>
-                Welcome, <?php echo e($user->emai); ?> |
+                Welcome, <?php echo e($user->name); ?> |
                 Your Credit: <?php echo e($credit); ?> |  
                 <a class="btn btn-success" href="<?php echo e(route('licenses.create')); ?>"> NEW</a>
             </h5>
